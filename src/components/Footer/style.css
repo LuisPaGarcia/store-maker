@@ -1,0 +1,14 @@
+.policy-banner {
+  height: 100px;
+  color: yellow;
+  background-color: blue;
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
+}
+
+.banner-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
