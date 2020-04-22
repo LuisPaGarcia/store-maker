@@ -21,15 +21,19 @@ const Layout = ({ children }) => {
   const [score, setScore] = useState(0);
   const [pedido, setPedido] = useState([]);
 
+  const initContext = {
+    addPoints: points => { setScore(score => score + points) },
+    addPedido: objeto => { setPedido(pedido => [...pedido, objeto]) },
+    removePedido: name => { setPedido(pedido => [...pedido.filter(e => e.name !== name)]) },
+    score,
+    pedido,
+    waURL: 'https://wa.me/50249033688/'
+  }
+
   return (
     <>
       <Context.Provider
-        value={{
-          score, addPoints: points => { setScore(score => score + points) },
-          pedido, addPedido: objeto => {
-            setPedido(pedido => [...pedido, objeto])
-          }
-        }}
+        value={initContext}
       >
         <Header siteTitle={data.site.siteMetadata.title} />
         <div

@@ -6,21 +6,21 @@ import "./style.css"
 const products = [
   {
     nombre: 'Hamburguesa simple',
-    precio: 'Q 10.00',
+    precio: '10.00',
     unidad: 'unidad',
     image: 'hamburguer',
-    descripcion: 'Esta es una hamburguesa yum yum'
+    descripcion: 'Esta es una hamburguesa yum yum',
   },
   {
     nombre: 'Pizza de peperoni',
-    precio: 'Q 40.00',
+    precio: '40.00',
     unidad: 'unidad',
     image: 'pizza',
     descripcion: 'Esta es una pizza yum yum'
   },
   {
     nombre: 'Six de chelas',
-    precio: 'Q 100.00',
+    precio: '100.00',
     unidad: 'unidad',
     image: 'beer',
 
@@ -53,7 +53,6 @@ const prepareProducts = (edges) => {
     }
   })
   return productsInfo
-
 }
 
 const Image = () => {
@@ -65,7 +64,7 @@ const Image = () => {
       {productsInfo.map(e =>
         <div key={e.nombre} className="product card">
           <Img fluid={e.fluid} />
-          <Contador producto={e.nombre} />
+          <Contador {...e} />
         </div>
       )}
     </div>

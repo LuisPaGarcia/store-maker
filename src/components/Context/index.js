@@ -4,5 +4,7 @@ export default React.createContext({
   points: 0,
   addPoints: () => { },
   pedido: [],
-  addPedido: () => { }
+  addPedido: () => { },
+  removePedido: () => { },
+  waURL: 'https://wa.me/50249033688/'
 });

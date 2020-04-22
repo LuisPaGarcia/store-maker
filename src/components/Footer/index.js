@@ -3,15 +3,21 @@ import "./style.css"
 import Context from "../Context";
 const Footer = () => {
   const pedidoContext = useContext(Context);
-
-  console.log(pedidoContext.pedido)
+  const pedirWA = () => {
+    const mensaje = `?text=${encodeURI(pedidoContext.pedido.map(v => `${v.cantidad} de ${v.name}`).join(", "))}`
+    window.open(pedidoContext.waURL + mensaje, '_blank');
+  }
 
   return (
     <div className="policy-banner banner-content" >
-      <div>Bottom banner</div>{pedidoContext.score}
-      <div>
-        {pedidoContext.pedido.map((item) => (<h1 key={item.name}>{item.name}: {item.cantidad}</h1>))}
+      <div className="pedido">
+        {pedidoContext.pedido.map((item) => (<span key={item.name}>{item.name}: {item.cantidad}</span>))}
       </div>
+      {pedidoContext.pedido.length === 0 ? null :
+        <div className="Pedir">
+          <button onClick={pedirWA}>Pedir!</button>
+        </div>
+      }
     </div >
   )
 }
