@@ -2,8 +2,8 @@
 import React, { useState, useContext } from "react"
 import PropTypes from "prop-types"
 import "./style.css"
-import { INITIAL_VALUE_PRODUCT, INCREMENTAL_VALUE } from "../../utils/constants";
-import Context from "../Context";
+import { INITIAL_VALUE_PRODUCT, INCREMENTAL_VALUE } from "Utils/constants";
+import Context from "Components/Context";
 
 function Contador({ nombre, precio }) {
   const pedidoContext = useContext(Context);
@@ -22,17 +22,18 @@ function Contador({ nombre, precio }) {
     <div className="wrapper-contador">
       {productoSeleccionado() ?
         <>
-          <button className="ordernar" onClick={removePedido}>Agregado</button>
+          <button className="remover" onClick={removePedido}>Quitar</button>
         </>
         :
         <>
           <div className="contador">
             <button onClick={updateCount} data-value={-INCREMENTAL_VALUE} disabled={conteo === INITIAL_VALUE_PRODUCT}>-</button>
-            <input type="number" value={conteo} className="contador-input" onChange={() => { }}></input>
+            <label htmlFor={`input-${nombre}`} style={{ display: 'none' }}>value</label>
+            <input name={`input-${nombre}`} id={`input-${nombre}`} type="number" value={conteo} className="contador-input" onChange={() => { }}></input>
             <button onClick={updateCount} data-value={INCREMENTAL_VALUE} disabled={conteo === 50}>+</button>
-            <span>{parseFloat(precio * conteo).toFixed(2)}</span>
+            <p className="contador-value">{parseFloat(precio * conteo).toFixed(2)}</p>
           </div>
-          <button className="ordernar" onClick={updatePedido}>Agregar al Carrito</button>
+          <button className="ordernar" onClick={updatePedido}>Agregar</button>
         </>
       }
     </div>

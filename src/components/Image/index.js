@@ -1,7 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
-import Contador from "../Contador"
+import Contador from "Components/Contador"
 import "./style.css"
 const products = [
   {

@@ -1,8 +1,11 @@
+// eslint-disable-next-line no-undef
 module.exports = {
   siteMetadata: {
     title: `Store test`,
     description: `Store creator!.`,
     author: `@luispagarcia`,
+    cellphone: '49033688',
+    areacode: '502',
     products: [
       {
         nombre: 'Hamburguesa simple',
@@ -30,9 +33,24 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          "Src": "src",
+          "Components": "src/components",
+          "Utils": "src/utils",
+          "Pages": "src/pages",
+        },
+        extensions: [
+          "js",
+        ],
+      }
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
+        // eslint-disable-next-line no-undef
         path: `${__dirname}/src/images`,
       },
     },

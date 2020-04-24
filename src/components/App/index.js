@@ -1,9 +1,9 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import GatsbyImage from "gatsby-image"
-import Contador from "../Contador"
+import Contador from "Components/Contador"
+import { prepareProducts } from "Utils/reducers"
 import "./style.css"
-import { prepareProducts } from "../../utils/reducers"
 
 // Fetch all the images from the treatement from Gatsby Sharp
 // And the products saved in gatsby-config.js
@@ -44,8 +44,10 @@ const App = () => {
     <div className="container">
       {/* Iterate between all products and render the counter and the image */}
       {productsInfo.map(product =>
-        <div key={product.nombre} className="product card">
-          <GatsbyImage fluid={product.fluid} />
+        <div key={product.nombre} className="product-container">
+          <div className="product card">
+            <GatsbyImage fluid={product.fluid} />
+          </div>
           <Contador {...product} />
         </div>
       )}

@@ -11,4 +11,32 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: animatebottom 0.4s;
+}
+
+.banner-content-hide {
+  animation: animatebottomhide 0.4s;
+  height: 0px;
+}
+
+/* .w3-animate-bottom {
+  position: relative;
+  animation: animatebottom 0.4s;
+} */
+@keyframes animatebottom {
+  from {
+    height: 0px;
+  }
+  to {
+    height: 100px;
+  }
+}
+
+@keyframes animatebottomhide {
+  from {
+    height: 100px;
+  }
+  to {
+    height: 0px;
+  }
 }

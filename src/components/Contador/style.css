@@ -1,11 +1,32 @@
-.wrapper-contador{
-    display: flex;
-    flex-direction: column;
+.wrapper-contador {
+  display: flex;
+  flex-direction: column;
+  min-width: 160px;
 }
 .contador {
   margin: 0 auto;
 }
-.contador-input{
+
+.remover {
+  margin-top: 1.7rem;
+  margin-bottom: 1.7rem;
+}
+
+.contador-input {
   width: 5rem;
   text-align: center;
+}
+
+.contador-value {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+@media (min-width: 640px) {
+  .wrapper-contador {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
 }

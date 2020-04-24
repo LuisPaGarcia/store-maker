@@ -1,17 +1,22 @@
 import React, { useContext } from "react"
 import "./style.css"
-import Context from "../Context";
+import Context from "Components/Context";
+
+import MicroModal from 'micromodal';
 const Footer = () => {
+  MicroModal.init();
   const pedidoContext = useContext(Context);
   const pedirWA = () => {
-    const mensaje = `?text=${encodeURI(pedidoContext.pedido.map(v => `${v.cantidad} de ${v.name}`).join(", "))}`
+
+    let mensaje = "Hola! Quiero Ordenar \n"
+    mensaje = `?text=${encodeURI(mensaje.concat(pedidoContext.pedido.map(v => `${v.cantidad} de ${v.name}`).join(", ")))}`
+    // eslint-disable-next-line no-undef
     window.open(pedidoContext.waURL + mensaje, '_blank');
   }
-
+  const hayPedido = pedidoContext.pedido.length > 0
   return (
-    <div className="policy-banner banner-content" >
+    <div className={`policy-banner ${!hayPedido ? 'banner-content-hide' : 'banner-content'}`} >
       <div className="pedido">
-        {pedidoContext.pedido.map((item) => (<span key={item.name}>{item.name}: {item.cantidad}</span>))}
       </div>
       {pedidoContext.pedido.length === 0 ? null :
         <div className="Pedir">
