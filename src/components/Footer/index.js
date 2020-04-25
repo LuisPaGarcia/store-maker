@@ -2,9 +2,7 @@ import React, { useContext } from "react"
 import "./style.css"
 import Context from "Components/Context";
 
-import MicroModal from 'micromodal';
 const Footer = () => {
-  MicroModal.init();
   const pedidoContext = useContext(Context);
   const pedirWA = () => {
 
