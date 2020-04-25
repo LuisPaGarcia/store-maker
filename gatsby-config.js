@@ -1,35 +1,7 @@
 // eslint-disable-next-line no-undef
-module.exports = {
-  siteMetadata: {
-    title: `Store test`,
-    description: `Store creator!.`,
-    author: `@luispagarcia`,
-    cellphone: '49033688',
-    areacode: '502',
-    products: [
-      {
-        nombre: 'Hamburguesa simple',
-        precio: '10.00',
-        unidad: 'unidad',
-        image: 'hamburguer',
-        descripcion: 'Esta es una hamburguesa yum yum',
-      },
-      {
-        nombre: 'Pizza de peperoni',
-        precio: '40.00',
-        unidad: 'unidad',
-        image: 'pizza',
-        descripcion: 'Esta es una pizza yum yum'
-      },
-      {
-        nombre: 'Six de chelas',
-        precio: '100.00',
-        unidad: 'unidad',
-        image: 'beer',
-
-      },
-    ]
-  },
+const meta = require('./meta.json')
+const config = {
+  siteMetadata: meta,
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
@@ -73,3 +45,5 @@ module.exports = {
     // `gatsby-plugin-offline`,
   ],
 }
+
+module.exports = config
