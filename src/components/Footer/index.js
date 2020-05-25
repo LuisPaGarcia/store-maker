@@ -6,7 +6,7 @@ const Footer = () => {
   const pedidoContext = useContext(Context);
   const pedirWA = () => {
 
-    let mensaje = "Hola! Quiero Ordenar \n"
+    let mensaje = "Hola! Quiero Ordenar lo siguiente: \n"
     mensaje = `?text=${encodeURI(mensaje.concat(pedidoContext.pedido.map(v => `${v.cantidad} de ${v.name}`).join(", ")))}`
     // eslint-disable-next-line no-undef
     window.open(pedidoContext.waURL + mensaje, '_blank');
